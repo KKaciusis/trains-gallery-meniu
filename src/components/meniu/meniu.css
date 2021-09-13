@@ -47,3 +47,14 @@
     width: 100%;
     height: 100%;
 }
+.dropDown{
+    position: absolute;
+    top: 45px;
+    transform: translate(-45%);
+    background-color: #23a6d5;
+    display: flex;
+    flex-direction: column;
+}
+.dropDown > img{
+    width: 50px;
+}
