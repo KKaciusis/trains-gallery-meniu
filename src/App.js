@@ -7,9 +7,11 @@ import NavItem from './components/meniu/navItem';
 function App() {
   return (
     <div className="App">
-      <NavBar><NavItem navIcon="icon">
-        <DropDown></DropDown>
-        </NavItem></NavBar>
+      <NavBar>
+        <NavItem icon={<img src='icon/chewie.svg'/>}>
+          <DropDown/>
+      </NavItem>
+      </NavBar>
       <Images />
     </div>
   );
@@ -18,7 +20,7 @@ function DropDown(props){
   function DropItems(props){
     return (
       <a href="#" className="dropItem">
-        <span className="dropButton">{props.leftIcon}</span>
+        <span className="dropButton">{props.DropItems}</span>
         {props.children}
       </a>
     );

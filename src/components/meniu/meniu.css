@@ -31,17 +31,19 @@
     --buttonSize: calc(var(--nav-size) * 0.5);
     width: var(--buttonSize);
     height: var(--buttonSize);
-    background-color: #23a6d5;
-    border-radius: 50%;
+    border: 2px solid #23a6d5;
+    border-radius: 35%;
     padding: 5px;
     margin: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: filter 6000;
 }
 .iconButton:hover{
-    filter: brightness(1.2);
+    cursor: pointer;
+    background: linear-gradient(-45deg, #ffff, #ffff, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
 }
 .iconButton > img {
     width: 100%;
@@ -49,12 +51,23 @@
 }
 .dropDown{
     position: absolute;
-    top: 45px;
-    transform: translate(-45%);
-    background-color: #23a6d5;
+    top: 50px;
+    transform: translate(-100%);
     display: flex;
     flex-direction: column;
+    border: 2px solid #23a6d5;
+    border-radius: 15%;
 }
-.dropDown > img{
-    width: 50px;
+.dropDown:hover{
+    background: linear-gradient(-45deg, #ffff, #ffff, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+.dropDown:hover .iconButton:hover{
+    background: white;
+}
+.dropDown  img{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 25px;
 }

@@ -27,7 +27,6 @@
     object-fit: cover;
     height: 250px;
     width: 400px;
-    transition: all 1s ;
 }
 p {
     font-size: 16px;
