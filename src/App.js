@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CSSTransition } from "react-transition-group";
 import './App.css';
 import Images from './components/Images';
 import NavBar from './components/meniu/meniu';
@@ -18,22 +19,42 @@ function App() {
   );
 };
 function DropDown(props){
-  const [open, setOpen] = useState(false);
+  
+  const [activeMenu, setActiveMenu] = useState('main');
+
   function DropItems(props){
     return (
+      <a href='#' onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
       <div className="dropItem">
         <span className="dropButton">{props.DropItems}</span>
         {props.children}
       </div>
+      </a>
     );
 
   };
   return (
     <div className="dropDown">
-      <DropItems><a href='#' onClick={() => setOpen(!open)}><img src='icon/trash.svg'/>{open}</a></DropItems>
-      <DropItems><a href='#' onClick={() => setOpen(!open)}><img src='icon/plus.svg'/>{open && props.children}</a></DropItems>
+
+      <CSSTransition in={activeMenu === 'main'} unmountOnExit timeout={500} classNames="menu-primary">
+        <div className="menu">
+      <DropItems goToMenu="settings" ><img src='icon/plus.svg'/></DropItems>
+      <DropItems><a href='#' ><img src='icon/trash.svg'/></a></DropItems>
+        </div>
+      </CSSTransition>
+
+      <CSSTransition in={activeMenu === 'settings'} unmountOnExit timeout={500} classNames="menu-secondary">
+        <div className="menu">
+      <DropItems><h3>Upload an Image</h3></DropItems>
+      <DropItems><input id="fileUpload" type="file" className="fileInput"/></DropItems>
+      <DropItems><input type="text" className="textInput"/></DropItems>
+      <DropItems goToMenu="main" ><img src='icon/back.svg'/></DropItems>
+        </div>
+      </CSSTransition>
 
     </div>
+
+    
   );
 };
 

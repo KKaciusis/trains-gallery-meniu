@@ -3,7 +3,7 @@ import './meniu.css';
 
 function NavBar(props){
     return(
-        <nav className="meniu">
+        <nav className="meniuDrop">
             <ul className="meniuBar">{props.children}</ul>
         </nav>
     );
