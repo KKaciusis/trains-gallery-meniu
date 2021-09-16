@@ -1,4 +1,4 @@
-
+import React, { useState } from "react";
 import './App.css';
 import Images from './components/Images';
 import NavBar from './components/meniu/meniu';
@@ -9,7 +9,8 @@ function App() {
     <div className="App">
       <NavBar>
         <NavItem icon={<img src='icon/chewie.svg'/>}>
-          <DropDown/>
+          <DropDown>
+            </DropDown>
       </NavItem>
       </NavBar>
       <Images />
@@ -17,19 +18,20 @@ function App() {
   );
 };
 function DropDown(props){
+  const [open, setOpen] = useState(false);
   function DropItems(props){
     return (
-      <a href="#" className="dropItem">
+      <div className="dropItem">
         <span className="dropButton">{props.DropItems}</span>
         {props.children}
-      </a>
+      </div>
     );
 
   };
   return (
     <div className="dropDown">
-      <DropItems><img src='icon/chewie.svg'/></DropItems>
-      <DropItems><img src='icon/plus.svg'/></DropItems>
+      <DropItems><a href='#' onClick={() => setOpen(!open)}><img src='icon/trash.svg'/>{open}</a></DropItems>
+      <DropItems><a href='#' onClick={() => setOpen(!open)}><img src='icon/plus.svg'/>{open && props.children}</a></DropItems>
 
     </div>
   );
