@@ -18,6 +18,12 @@ function App() {
     </div>
   );
 };
+function fileUpload(){
+
+}
+function SelectedFile(){
+  console.log("vos")
+}
 function DropDown(props){
   
   const [activeMenu, setActiveMenu] = useState('main');
@@ -38,8 +44,8 @@ function DropDown(props){
 
       <CSSTransition in={activeMenu === 'main'} unmountOnExit timeout={500} classNames="menu-primary">
         <div className="menu">
-      <DropItems goToMenu="settings" ><img src='icon/plus.svg'/></DropItems>
-      <DropItems><a href='#' ><img src='icon/trash.svg'/></a></DropItems>
+      <DropItems goToMenu="settings"><img src='icon/plus.svg'/><h3>Upload an image</h3></DropItems>
+      <DropItems><img src='icon/trash.svg'/><h3>Delete an image</h3></DropItems>
         </div>
       </CSSTransition>
 
@@ -48,7 +54,10 @@ function DropDown(props){
       <DropItems><h3>Upload an Image</h3></DropItems>
       <DropItems><input id="fileUpload" type="file" className="fileInput"/></DropItems>
       <DropItems><input type="text" className="textInput"/></DropItems>
+      <div className="buttons">
+      <DropItems><img src='icon/upload.svg'/></DropItems>
       <DropItems goToMenu="main" ><img src='icon/back.svg'/></DropItems>
+        </div>
         </div>
       </CSSTransition>
 

@@ -58,7 +58,9 @@
     border: 2px solid #23a6d5;
     border-radius: 8%;
     overflow: hidden;
-    background: white;
+    background: linear-gradient( 50deg, #ffff, #ffff, #23a6d5, #23d5ab);
+    background-size: 600% 600%;
+    animation: gradient 8s ease infinite;
     justify-content: center;
     align-items: center;
 }
@@ -96,10 +98,17 @@ a {
     text-decoration: none;
     color: black;
 }
+h3{
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
 .dropDown:hover{
-    background: linear-gradient( 50deg, #ffff, #ffff, #23a6d5, #23d5ab);
-    background-size: 600% 600%;
-    animation: gradient 8s ease infinite;
+    background: white;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .dropDown  img{
